@@ -14,3 +14,7 @@
 ### redux devTools
 
 1. por extensión del navegador (redux devTools) o click derecho inspeccionar y busca en las pestañas redux
+
+### useSelector
+
+1. para acceder a los estados iniciales de los componentes. el selector busca una función y tiene como parámetro el estado entero (en este caso de toda la store) la función pide acceder a un estado específico (store.cart por ejemplo)
