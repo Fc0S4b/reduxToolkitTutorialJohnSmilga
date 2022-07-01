@@ -18,3 +18,12 @@
 ### useSelector
 
 1. para acceder a los estados iniciales de los componentes. el selector busca una función y tiene como parámetro el estado entero (en este caso de toda la store) la función pide acceder a un estado específico (store.cart por ejemplo)
+
+### Hero icons
+
+1. desde heroicons.com se puede obtener íconos svg y configurarlos como componentes (ver icons.js), agrégale estilo css a svg para que no se vean en modo gigante
+
+### cart items local data
+
+1. en cartItems.js están los productos como información a mostrar de prueba.
+2. configura carItems en el slice de redux igual a la data de cartItems
