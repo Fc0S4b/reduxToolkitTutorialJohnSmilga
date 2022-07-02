@@ -36,3 +36,9 @@
 ### cart item
 
 1. se rescatan las props que se pasan desde CartContainer que son id, img, title, price, amount y se usan en el render de cart item. Cada item tendrá botones para aumentar o disminuir la cantidad del producto
+
+### reducers - clear cart
+
+1. con los reducers no es necesario mutar el estado (como se hacía en react en los reducers al devolver una nueva acción). redux toma la librería de Immer para hacer el trabajo mas liviano. Se puede usar la función que cambia el estado directamente usando el hook de react-redux llamado useDispatch
+2. cartSlice condenrá reducers (a diferencia de store que usa reducer)
+3. cartSlice tendrá guardado una propiedad de acciones en donde una de ellas será clearCart por lo que para acceder a clearCart se destructará a cartSlice.actions
