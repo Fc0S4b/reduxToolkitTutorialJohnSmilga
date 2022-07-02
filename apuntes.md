@@ -27,3 +27,8 @@
 
 1. en cartItems.js están los productos como información a mostrar de prueba.
 2. configura carItems en el slice de redux igual a la data de cartItems
+
+### cart container
+
+1. app tendrá un componente que será el contenedor del carro, a su vez este contenedor tendrá cada producto que será otro componente
+2. CartContainer tendrá destructurado la data, total y amount desde store.cart con useSelector (el cual extrae los datos desde el slice creado). Tendrá un render que dependerá del amount si es menor a 1 para decir que el carro está vacío o de lo contrario despliega los items de cart con un footer que resume el total y un botón para vaciar el carro
