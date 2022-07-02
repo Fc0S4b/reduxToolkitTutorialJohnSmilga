@@ -42,3 +42,8 @@
 1. con los reducers no es necesario mutar el estado (como se hacía en react en los reducers al devolver una nueva acción). redux toma la librería de Immer para hacer el trabajo mas liviano. Se puede usar la función que cambia el estado directamente usando el hook de react-redux llamado useDispatch
 2. cartSlice condenrá reducers (a diferencia de store que usa reducer)
 3. cartSlice tendrá guardado una propiedad de acciones en donde una de ellas será clearCart por lo que para acceder a clearCart se destructará a cartSlice.actions
+
+### reducers - return state
+
+1. si se usa return igual a un objeto vacío en clearCart, se modificará todo el initialState en un objeto vacío. o si se retorna {cartItems: []}, se cambiará cartItems pero el resto de las propiedades del estado inicial desaparecerán
+2. es útli retornar un objeto vacío cuando quiero limpiar todas las entradas de un form
