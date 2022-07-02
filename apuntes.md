@@ -46,4 +46,8 @@
 ### reducers - return state
 
 1. si se usa return igual a un objeto vacío en clearCart, se modificará todo el initialState en un objeto vacío. o si se retorna {cartItems: []}, se cambiará cartItems pero el resto de las propiedades del estado inicial desaparecerán
-2. es útli retornar un objeto vacío cuando quiero limpiar todas las entradas de un form
+2. es útil retornar un objeto vacío cuando quiero limpiar todas las entradas de un form
+
+### reducers - remove item
+
+1. un reducer recibe como argumento el state que vimos antes y action como segundo argument. action es un objeto que contiene type y payload, si por ejemplo un botón invoca un reducer onClick y le pasa como argumento el id, entonces action.payload contendrá ese id
