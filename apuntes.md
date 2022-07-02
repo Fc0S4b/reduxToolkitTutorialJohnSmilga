@@ -59,3 +59,12 @@
 ### reducers - calculate totals
 
 1. se necesita en app un useEffect para que cada vez que cambie la cantidad de items, cambie también el precio total en donde se le irá sumando la cantidad por precio de ese item (manejado en el reducer)
+
+### modal slice
+
+1. creamos otro slice en features con modalSlice junto con su estado inicial, y su createSlice para los reducers
+2. un export para modalSlice.reducer para el store, el store tendrá en su reducer otro elemento con modal: modalReducer
+3. con createSlice emmet para auto import
+4. App tendrá un condicional según isOpen para mostrar el componente Modal
+5. el componente CartContainer ya no ejecutará la función de limpiar el carro al hacer click en su botón, si no al hacer click abrirá el modal
+6. el componente Modal tendrá las funciones de clearCart y closeModal ejecutadas con dispatch y al onClick
