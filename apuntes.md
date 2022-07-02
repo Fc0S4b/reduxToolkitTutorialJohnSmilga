@@ -76,3 +76,12 @@
 3. se define una función que invoca a createAsyncThunk y que recibe dos parámetros el nombre de la acción y una callback function que necesita retornar una promise de forma automática (independiente del return que le des)
 4. la callback retornará lifecycle actions que se manejan desde la propiedad de extraReducers en createSlice, las acciones a manejar son las mismas que las de promise que son una para pending, otra para fulfilled y otra para rejected. Cada acción tendrá su estado y action (donde se puede acceder al payload)
 5. la función definida se usará en App para poder ejecutar la función asíncrona mediante un useEffect que use dispatch para llamar a esa función por cada vez que se carga la página (osea, lista de dependencias vacía)
+
+### createAsyncThunk more options
+
+1. mas opciones para la callback que usa como segundo parámetro createAsyncThunk
+2. instalar axios para manejar errores 404 que básicamente no son errores en el manejo de redux sino errores de red en la respuesta del recurso
+3. en la callback usamos un trycatch para invocar axios y manejar el error
+4. si a la función getCartItems se le pasa por ejemplo 'random' como argumento, este corresponderá al valor del primer parámetro de la callback, pero si no se usa ese argumento entonces simplemente pasar un guión bajo para no usarlo y así usar el segundo argumento que convencionalmente se llama thunkAPI (tiene más opciones thunkAPI)
+5. las opciones que tiene thunkAPI son propiedades de un objeto que son importantes para acceder a valores de los slices como cart y modal (con thunkAPI.getState) o a los reducers (con thunkAPI.dispatch) y se puede invocar desde la misma callback
+6. para el manejo de error con catch en la callback, la propiedad que despliega el mensaje que le pases como argumento será thunkAPI.rejectWithValue('aqui mensaje'), por lo que en el manejo de la promise con getCartItems.rejected, al usar como segundo argumento action, el payload de ese action tendrá el 'aqui mensaje'

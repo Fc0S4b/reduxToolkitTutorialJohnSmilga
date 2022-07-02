@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import cartItems from '../../cartItems';
+// import cartItems from '../../cartItems';
+import axios from 'axios';
 
 const url = ' https://course-api.com/react-useReducer-cart-project';
 
@@ -10,11 +11,21 @@ const initialState = {
   isLoading: true,
 };
 
-export const getCartItems = createAsyncThunk('cart/getCartItems', () => {
-  return fetch(url)
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-});
+export const getCartItems = createAsyncThunk(
+  'cart/getCartItems',
+  async (_, thunkAPI) => {
+    try {
+      const resp = await axios(url);
+      // console.log(resp); objeto con elementos tales ccomo request, headers,data, status...
+      // console.log(thunkAPI) un objeto gigante con dispatch, extra, fullfillwhitvalue, getState, etc (getState es importante)
+      // console.log(thunkAPI.getState) tenemos los valores para cart y modal,
+      // console.log(thunkAPI.dispatch) se puede acceder a los reducers y ejecutarla desde aquí mismo
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue('something went wrong');
+    }
+  }
+);
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -56,7 +67,8 @@ const cartSlice = createSlice({
       state.isLoading = false;
       state.cartItems = action.payload;
     },
-    [getCartItems.rejected]: (state) => {
+    [getCartItems.rejected]: (state, action) => {
+      // console.log(action) objeto con payload, error, meta, type, en el payload veremos 'shomething went wrong
       state.isLoading = false;
     },
   },
