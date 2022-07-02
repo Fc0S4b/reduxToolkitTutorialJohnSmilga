@@ -32,3 +32,7 @@
 
 1. app tendrá un componente que será el contenedor del carro, a su vez este contenedor tendrá cada producto que será otro componente
 2. CartContainer tendrá destructurado la data, total y amount desde store.cart con useSelector (el cual extrae los datos desde el slice creado). Tendrá un render que dependerá del amount si es menor a 1 para decir que el carro está vacío o de lo contrario despliega los items de cart con un footer que resume el total y un botón para vaciar el carro
+
+### cart item
+
+1. se rescatan las props que se pasan desde CartContainer que son id, img, title, price, amount y se usan en el render de cart item. Cada item tendrá botones para aumentar o disminuir la cantidad del producto
