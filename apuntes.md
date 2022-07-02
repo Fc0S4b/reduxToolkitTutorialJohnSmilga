@@ -55,3 +55,7 @@
 ### reducers - increase and decrease
 
 1. action como segundo parámetro se puede destructurar directamente para acceder al payload como {payload}
+
+### reducers - calculate totals
+
+1. se necesita en app un useEffect para que cada vez que cambie la cantidad de items, cambie también el precio total en donde se le irá sumando la cantidad por precio de ese item (manejado en el reducer)
