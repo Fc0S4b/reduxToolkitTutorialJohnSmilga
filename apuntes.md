@@ -51,3 +51,7 @@
 ### reducers - remove item
 
 1. un reducer recibe como argumento el state que vimos antes y action como segundo argument. action es un objeto que contiene type y payload, si por ejemplo un botón invoca un reducer onClick y le pasa como argumento el id, entonces action.payload contendrá ese id
+
+### reducers - increase and decrease
+
+1. action como segundo parámetro se puede destructurar directamente para acceder al payload como {payload}
