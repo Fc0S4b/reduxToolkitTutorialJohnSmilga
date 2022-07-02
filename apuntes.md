@@ -68,3 +68,11 @@
 4. App tendrá un condicional según isOpen para mostrar el componente Modal
 5. el componente CartContainer ya no ejecutará la función de limpiar el carro al hacer click en su botón, si no al hacer click abrirá el modal
 6. el componente Modal tendrá las funciones de clearCart y closeModal ejecutadas con dispatch y al onClick
+
+### createAsyncThunk
+
+1. crear una función asíncrona con redux toolkit
+2. no se puede agregar directamente a los reducers, se necesita otra librería, la redux-thunk que ya viene incluida en redux toolkit
+3. se define una función que invoca a createAsyncThunk y que recibe dos parámetros el nombre de la acción y una callback function que necesita retornar una promise de forma automática (independiente del return que le des)
+4. la callback retornará lifecycle actions que se manejan desde la propiedad de extraReducers en createSlice, las acciones a manejar son las mismas que las de promise que son una para pending, otra para fulfilled y otra para rejected. Cada acción tendrá su estado y action (donde se puede acceder al payload)
+5. la función definida se usará en App para poder ejecutar la función asíncrona mediante un useEffect que use dispatch para llamar a esa función por cada vez que se carga la página (osea, lista de dependencias vacía)
